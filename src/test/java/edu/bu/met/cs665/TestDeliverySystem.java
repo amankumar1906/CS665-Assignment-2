@@ -18,7 +18,7 @@ import edu.bu.met.cs665.example1.Shop;
 
 /**
  * Unit tests for the delivery system demonstrating the Observer pattern functionality.
- * This class verifies the correct registration, notification, and deregistration of drivers.
+ * This class verifies the correct registration, notification, and removal of drivers.
  */
 public class TestDeliverySystem {
     private Shop shop;
