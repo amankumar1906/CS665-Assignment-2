@@ -1,49 +1,31 @@
-/**
- * Name: Aman Kumar
- * Course: CS-665 Software Designs & Patterns
- * Date: 02/17/2024
- * File Name: Shop.java
- * Description: This class manages driver notifications for delivery requests.
- */
-
 package edu.bu.met.cs665.example1;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * The Shop class acts as a notifier in the Observer pattern.
- * It maintains a list of drivers and notifies them of new delivery requests.
+ * The interface for the subject in the Observer pattern.
+ * It provides methods to attach, detach, and notify observers.
  */
-public class Shop {
-  private final List<Driver> drivers = new ArrayList<>();
+
+public interface Shop {
 
   /**
-   * Attaches (registers) a driver to receive notifications.
+   * Method to register an observer.
    *
-   * @param driver the driver to attach
+   * @param driver the observer to be registered.
    */
-  public void attach(Driver driver) {
-    drivers.add(driver);
-  }
+  void attach(Driver driver);
 
   /**
-   * Detaches (unregisters) a driver from receiving notifications.
+   * Method to deregister an observer.
    *
-   * @param driver the driver to detach
+   * @param driver the observer to be deregistered.
    */
-  public void detach(Driver driver) {
-    drivers.remove(driver);
-  }
+  void detach(Driver driver);
 
   /**
-   * Notifies all attached (registered) drivers of a new delivery request.
+   * Method to notify all registered observers of a change.
    *
-   * @param request the delivery request to notify about
+   * @param request the delivery request to be sent to all observers.
    */
-  public void notifyDrivers(DeliveryRequest request) {
-    for (Driver driver : drivers) {
-      driver.update(request);
-    }
-  }
+  void notifyDrivers(DeliveryRequest request);
+
 }

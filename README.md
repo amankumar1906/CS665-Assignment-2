@@ -2,15 +2,15 @@
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
 | Name         | Aman Kumar                 |
-| Date         | MM/DD/YYYY                 |
-| Course       | Fall / Spring / Summer     |
-| Assignment # |                            |
+| Date         | 02/17/2024                 |
+| Course       | Spring                     |
+| Assignment # | 2                          |
 
 # Assignment Overview
 Please add a paragraph or two overviewing the objectives of the assignment.
 
 # GitHub Repository Link:
-https://github.com/{YOUR_USERNAME}/cs-665-assignment-{ASSIGNMENT_NUMBER}
+https://github.com/amankumar1906/CS665-Assignment-2
 
 # Implementation Description 
 
@@ -19,11 +19,26 @@ For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
+Answer: My implementation uses the Observer pattern, which inherently allows for high flexibility. 
+You can easily add new Driver types by simply creating a new class that implements the Driver interface and its update method. 
+Removing a driver type is just as simple, requiring you to delete or stop using that class. 
+The Shop class doesn't need to change when drivers are added or removed, as it interacts with the Driver interface, not the concrete classes directly.
+
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
+Answer:  The code is organized with clear interfaces and well-defined roles for each class, making it straightforward for other developers to understand. 
+Each class has a single responsibility, such as handling delivery requests (DeliveryRequest), managing notifications (Shop), or responding to updates (Driver and ConcreteDriver). 
+This clear separation of concerns enhances readability and maintainability.\
+
 - Describe how you have avoided duplicated code and why it is important.
+Answer: By using interfaces and abstracting out common functionality, my implementation avoids duplicated code.
+For instance, the update method is defined once in the Driver interface and implemented by all concrete observers.
+This DRY (Don't Repeat Yourself) approach is important because it reduces the likelihood of errors and makes the codebase easier to update—changes in common behavior need to be made in only one place.
+
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
+Answer: The Observer design pattern was chosen to allow the Shop to notify registered Drivers about delivery requests without being tightly coupled to their concrete implementations. 
+This pattern is ideal for scenarios where an object needs to notify an indeterminate number of other objects about state changes, which is exactly the case in a dynamic delivery system.
 
 
 # Maven Commands

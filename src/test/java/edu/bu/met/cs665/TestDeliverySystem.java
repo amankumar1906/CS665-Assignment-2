@@ -2,7 +2,7 @@
  * Name: Aman Kumar
  * Course: CS-665 Software Designs & Patterns
  * Date: 02/17/2024
- * File Name: ConcreteDriver.java
+ * File Name: TestDeliverySystem.java
  * Description: This class represents JUnit tests for the implementation of the Observer pattern.
  */
 package edu.bu.met.cs665;
@@ -12,30 +12,33 @@ import static org.mockito.Mockito.*;
 import org.junit.Before;
 import org.junit.Test;
 
+// Update the import statements if needed based on your package structure
 import edu.bu.met.cs665.example1.DeliveryRequest;
 import edu.bu.met.cs665.example1.Driver;
-import edu.bu.met.cs665.example1.Shop;
+import edu.bu.met.cs665.example1.ConcreteShop;
+import edu.bu.met.cs665.example1.Shop; // Import the Shop interface
 
 /**
  * Unit tests for the delivery system demonstrating the Observer pattern functionality.
  * This class verifies the correct registration, notification, and removal of drivers.
  */
 public class TestDeliverySystem {
-    private Shop shop;
-    private Driver driver1, driver2, driver3;
-    private DeliveryRequest request;
+  private Shop shop;
+  private Driver driver1, driver2, driver3;
+  private DeliveryRequest request;
 
-    @Before
-    public void setUp() {
-        // Initialize the shop and mock drivers
-        shop = new Shop();
-        driver1 = mock(Driver.class);
-        driver2 = mock(Driver.class);
-        driver3 = mock(Driver.class);
+  @Before
+  public void setUp() {
+    // Initialize the concrete shop and mock drivers
+    shop = new ConcreteShop();
+    driver1 = mock(Driver.class);
+    driver2 = mock(Driver.class);
+    driver3 = mock(Driver.class);
 
-        // Create a sample delivery request
-        request = new DeliveryRequest("Order123", "1234 Main St, Anytown");
-    }
+    // Create a sample delivery request
+    request = new DeliveryRequest("Order123", "1234 Main St, Anytown");
+  }
+
 
     @Test
     public void testDriverRegistrationAndNotification() {
